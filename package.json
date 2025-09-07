@@ -4,16 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "VITE_ENV=dev vite",
+    "start:prod": "VITE_ENV=prod vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && firebase deploy -P default --only hosting:scaine-dev",
+    "deploy:rules": "firebase deploy --only firestore:rules --project scaine-dev"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.2",
     "@mui/material": "^7.3.2",
+    "@scaine-io/types": "^0.0.2",
+    "firebase": "^12.2.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
